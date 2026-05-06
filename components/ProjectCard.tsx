@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import { Project } from "@/data/projects";
-import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   project: Project;
@@ -84,4 +83,3 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     </motion.div>
   );
 }
-

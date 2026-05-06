@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
 export const metadata: Metadata = {
-  title: "Green - SaaS、AI、B端产品经理",
-  description: "专注于打造高效、易用的产品工具，通过技术创新解决实际问题",
-  keywords: ["SaaS产品", "AI应用", "B端产品", "产品经理", "自动化工具"],
+  title: "Green Wang - AI 产品经理与 Vibe Coding Builder",
+  description:
+    "Green Wang 的个人主页，展示 AI 产品、浏览器插件、RPA 自动化、招聘 Agent、微信小程序和个人 IP 项目复盘。",
+  keywords: ["AI产品经理", "Vibe Coding", "B端产品", "浏览器插件", "自动化工具", "个人主页"],
 };
 
 export default function RootLayout({
@@ -22,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

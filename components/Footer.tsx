@@ -1,44 +1,34 @@
-import { Github, Mail, Linkedin } from "lucide-react";
-import Link from "next/link";
+import ActionModalButton from "@/components/ActionModalButton";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            © {new Date().getFullYear()} Green. All rights reserved.
+    <footer className="border-t-2 border-ink bg-ink text-paper">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div>
+          <p className="text-lg font-black">Green Wang</p>
+          <p className="mt-1 text-sm font-medium text-paper/70">
+            AI 产品经理 / Vibe Coding Builder / B 端工具实践者
           </p>
-          <div className="flex items-center gap-6">
-            <Link
-              href="https://github.com/Genlei-Wang"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </Link>
-            <Link
-              href="mailto:21910163@zju.edu.cn"
-              className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-              aria-label="Email"
-            >
-              <Mail className="h-5 w-5" />
-            </Link>
-            <Link
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </Link>
-          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <ActionModalButton
+            type="github"
+            value="https://github.com/Genlei-Wang"
+            compact
+            title="查看 GitHub"
+            modalTitle="GitHub"
+            className="!h-10 !w-10 !rounded-lg border-2 border-paper/35"
+          />
+          <ActionModalButton
+            type="email"
+            value="wanggenlei2022@163.com"
+            compact
+            title="查看邮箱"
+            modalTitle="联系邮箱"
+            className="!h-10 !w-10 !rounded-lg border-2 border-paper/35"
+          />
         </div>
       </div>
     </footer>
   );
 }
-

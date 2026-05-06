@@ -1,57 +1,43 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import ActionModalButton from "@/components/ActionModalButton";
 
 const navItems = [
-  { href: "/", label: "首页" },
-  { href: "/about", label: "关于我" },
-  { href: "/contact", label: "联系方式" },
+  { href: "/#home", label: "首页" },
+  { href: "/#about", label: "关于我" },
+  { href: "/#projects", label: "项目" },
+  { href: "/#experience", label: "经历" },
 ];
 
 export default function Header() {
-  const pathname = usePathname();
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-200/50 bg-white/80 backdrop-blur-sm dark:border-zinc-800/50 dark:bg-zinc-900/80">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-transparent px-4 py-4 sm:py-5">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between rounded-[28px] border-4 border-ink bg-white px-5 py-3 shadow-nav sm:px-7">
         <Link
-          href="/"
-          className="text-lg font-bold text-zinc-900 transition-colors hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-zinc-300 sm:text-xl"
-        >
-          Green
-        </Link>
-        <div className="flex items-center gap-4 sm:gap-6">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative text-xs font-medium transition-colors sm:text-sm",
-                  isActive
-                    ? "text-zinc-900 dark:text-zinc-100"
-                    : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                )}
-              >
-                {item.label}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-zinc-900 dark:bg-zinc-100"
-                    initial={false}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </Link>
-            );
-          })}
+          href="/#home"
+          className="h-11 w-11 shrink-0 rounded-full border-[9px] border-ink sm:h-12 sm:w-12"
+          aria-label="Green home"
+        />
+
+        <div className="hidden items-center gap-6 md:flex lg:gap-10">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-lg font-black text-ink transition-opacity hover:opacity-65"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
+
+        <ActionModalButton
+          type="email"
+          value="wanggenlei2022@163.com"
+          compact
+          title="查看邮箱"
+          modalTitle="联系邮箱"
+        />
       </nav>
     </header>
   );
 }
-

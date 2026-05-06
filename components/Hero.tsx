@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-12 flex flex-wrap justify-center gap-3"
         >
-          {["SaaS产品", "AI应用", "B端产品", "效率工具"].map((skill, index) => (
+          {["SaaS产品", "AI应用", "B端产品", "效率工具"].map((skill) => (
             <span
               key={skill}
               className="rounded-full bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
@@ -63,4 +63,3 @@ export default function Hero() {
     </section>
   );
 }
-
